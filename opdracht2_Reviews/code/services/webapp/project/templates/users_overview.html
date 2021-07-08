@@ -1,0 +1,111 @@
+{% extends 'layout.html' %}
+
+
+{% block body %}
+
+<div class="modal fade" id="createUserModal" tabindex="-1" role="dialog" aria-labelledby="createUserModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="createUserModalLabel">Add User</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="createUserModalBody">
+                <div class="form-group">
+                    <label for="createUser_email">Email</label>
+                    <input type="text" name="email" class="form-control" id="createUser_email"/>
+                </div>
+                <div class="form-group">
+                    <label for="createUser_username">Username</label>
+                    <input type="text" name="username" class="form-control" id="createUser_username"/>
+                </div>
+                <div class="form-group">
+                    <label for="createUser_password">Password</label>
+                    <input type="password" name="password" class="form-control" id="createUser_password"/>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-success" onclick="doCreateUser()">Add</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<button type="button" class="btn btn-success" data-toggle="modal" data-target="#createUserModal">Add User</button><br><br>
+
+<table style="width:100%">
+	<tr>
+		<th>Username</th>
+		<th>Email</th>
+        <th>Details</th>
+	</tr>
+	{% for user in users %}
+		<tr>
+			<td>{{ user.username }}</td>
+			<td>{{ user.email }}</td>
+			<td><a href="{{ url_for('users_details',user_id=user.id) }}">Details</a></td>
+		</tr>
+	{% endfor %}
+</table>
+
+<script>
+
+    /**
+     * Function that submits the create user form to the users API.
+     */
+	function doCreateUser()
+	{
+		const url = "/api/users/create/"
+
+        const email = document.getElementById("createUser_email").value;
+
+        if(!checkEmailAddress(email))
+        {
+            alert("The specified email is not valid.");
+            return;
+        }
+
+        const username = document.getElementById("createUser_username").value;
+
+        if(!checkStringLength(username, 4))
+        {
+            alert("The specified username needs to be at least 4 characters long.");
+            return;
+        }
+
+        const password = document.getElementById("createUser_password").value;
+
+        if(!checkStringLength(password, 4))
+        {
+            alert("The specified password needs to be at least 4 characters long.");
+            return;
+        }
+        
+
+        const body = {
+            'email': document.getElementById("createUser_email").value,
+            'username': document.getElementById("createUser_username").value,
+            'password': document.getElementById("createUser_password").value
+        };
+
+        $('#createUserModal').modal('hide');
+
+        makeRequestAsync(url, "POST", finishCreateUser, null, body)
+
+        function finishCreateUser(response_data)
+        {
+            if(response_data['responseCode'] != 200)
+            {
+                alert(response_data['errorMessage']);
+            }
+
+            reloadPage();
+        }
+	}
+
+</script>
+
+{% endblock %}

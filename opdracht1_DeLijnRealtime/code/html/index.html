@@ -1,0 +1,469 @@
+<!doctype html>
+<html lang="en">
+    <head>
+	    <!-- Required meta tags -->
+	    <meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	    <!-- Bootstrap CSS -->
+        <!-- CDN
+	    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        -->
+
+        <!-- LOCAL -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}">
+
+        <!-- LEAFLET CDN
+	    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>
+	    <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js" integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og==" crossorigin=""></script>
+        -->
+
+        <!-- LEAFLET LOCAL -->
+        <link rel="stylesheet" href="{{ url_for('static',filename='leaflet/leaflet.css') }}"/>
+	    <script src="{{ url_for('static',filename='leaflet/leaflet.js') }}"></script>
+
+
+	    <style type="text/css">
+		    html, body, #map {
+			    height: 100%;
+			    margin: 0;
+			    padding: 0;
+		    }
+	    </style>
+
+	    <title>Delijn Live Map</title>
+    </head>
+    <body>
+	    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-toggle="modal" data-target="#addRouteModal">Add route</a>
+                </li>
+            </ul>
+	    </nav>
+	    <!-- Add Route Modal -->
+        <div class="modal fade" id="addRouteModal" tabindex="-1" role="dialog" aria-labelledby="addRouteModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="addRouteModalLabel">Add Route</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="addRouteSelectProvince">Province</label>
+                                <select class="form-control" id="addRouteSelectProvince" onchange="updateAddRouteSelectLine()"></select>
+                            </div>
+                            <div class="form-group">
+                                <label for="addRouteSelectRoute">Route</label>
+                                <select class="form-control" id="addRouteSelectRoute"></select>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button onclick="addRouteToMap(document.getElementById('addRouteSelectProvince').value, document.getElementById('addRouteSelectRoute').value)" type="button" class="btn btn-primary" data-dismiss="modal">Add</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+          </div>
+        </div>
+
+        <!-- Stop Modal -->
+        <div class="modal fade" id="stopModal" tabindex="-1" role="dialog" aria-labelledby="stopModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="stopModalLabel">NULL - NULL</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" id="stopModalBody">
+                        <div id="stopModalWeatherPicture" style="text-align: center;"></div>
+                        <ul>
+                            <li id="stopModalWeatherTemp"></li>
+                            <li id="stopModalWeatherWindSpeed"></li>
+                            <li id="stopModalWeatherHum"></li>
+                            <li id="stopModalWeatherClouds"></li>
+                        </ul>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal that blocks the screen and shows that something is loading. -->
+        <div id="progressModal" class="modal fade" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-hidden="true" style="padding-top:15%; overflow-y:visible;">
+            <div class="modal-dialog modal-m">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 style="margin:0;">Loading...</h3>
+                    </div>
+                    <div class="modal-body">
+                        Please wait.
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- map -->
+        <div id="mapid" style="width: 100%; height: 90%;"></div>
+
+        <!-- init map-->
+        <script>
+            var mymap = L.map('mapid').setView([51.02574, 4.20], 9);
+
+            L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+                maxZoom: 18,
+                attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+                    '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+                    'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+                id: 'mapbox.streets'
+            }).addTo(mymap);
+        </script>
+
+        <!-- functions for adding & removing routes -->
+        <script>
+
+            /**
+             * SOURCE: https://stackoveflow.com/questions/247483/http-get-request-in-javascript
+             *
+             * Make a HTTP GET request.
+             *
+             * @param theUrl The URL to which a request will be made.
+             */
+            function makeGetRequest(url)
+            {
+                console.log("Making call to '" + url + "'.");
+                const xmlHttp = new XMLHttpRequest();
+                xmlHttp.open("GET", url, false);
+                xmlHttp.send(null);
+                console.log("Received response.");
+
+                if (xmlHttp.status == 200) {
+                    // GOOD
+                    return JSON.parse(xmlHttp.responseText);
+
+                } else {
+                    const error_data = JSON.parse(xmlHttp.responseText);
+
+                    console.error("[ERROR LOG] Cannot retrieve data from server: '" + error_data["errorMessage"] + "'.");
+                    //alert("Cannot retrieve data from server: '" + error_data["errorMessage"] + "'.");
+
+                    return null;
+                }
+            }
+
+            /**
+             * Make a HTTP GET request to the specified url. The result will be passed to specfied callback function.
+             *
+             * @param url The URL that is the target of the HTTP GET request.
+             * @param callback A function that takes one parameter that will be used to consume the result of the request.
+             */
+            function makeGetRequestAsync(url, callback)
+            {
+                console.log("Making call to '" + url + "'.");
+                let xmlHttp = new XMLHttpRequest();
+                xmlHttp.open("GET", url, true);
+
+                xmlHttp.onload = function ()
+                {
+                    console.log("Received response.");
+                    if (xmlHttp.status == 200) { // GOOD
+
+                        // pass the result to the callback.
+                        callback(JSON.parse(xmlHttp.responseText));
+
+                    } else { // ERROR
+
+                        const error_data = JSON.parse(xmlHttp.responseText);
+                        const error_str = "Cannot retrieve data from server: '" + error_data["errorMessage"] + "'.";
+
+                        console.error(error_str);
+                        //alert(error_str);
+
+                        // pass null to the callback.
+                        callback(null);
+                    }
+                };
+
+                xmlHttp.send();
+            }
+
+            /**
+             * Add a route to the map.
+             * @param prov_id Integer. The identifier of the province in which the route is located. e.g. "1" for Antwerpen
+             * @param line_id Integer. The identifier of the "lijn". e.g. "lijn 32"
+             */
+            function addRouteToMap(prov_id, line_id)
+            {
+                showProgress();
+
+                const url_stops = "/api/provinces/" + prov_id + "/lines/" + line_id + "/stops/";
+                makeGetRequestAsync(url_stops, step_1);
+
+                function step_1(stop_data)
+                {
+                    // check result
+                    if(stop_data == null)
+                    {
+                        alert("Error when adding route to map: cannot retrieve stops!");
+                        hideProgress();
+                        return;
+                    }
+
+                    // call to colors
+                    const url_color = "/api/provinces/" + prov_id + "/lines/" + line_id + "/color/";
+                    makeGetRequestAsync(url_color, step_2);
+
+                    function step_2(color_data)
+                    {
+                        // check result
+                        if(color_data == null)
+                        {
+                            alert("Error when adding route to map: cannot retrieve line colors!");
+                            hideProgress();
+                            return;
+                        }
+
+                        // call to vehicles
+                        const url_vehicles = "/api/provinces/" + prov_id + "/lines/" + line_id + "/vehicles/";
+                        makeGetRequestAsync(url_vehicles, step_3);
+
+                        function step_3(vehicle_data)
+                        {
+
+                            if(vehicle_data == null)
+                            {
+                                alert("Error when adding route to map: cannot retrieve vehicles!");
+                                hideProgress();
+                                return;
+                            }
+
+                            // add lines & stops to the map
+                            addLineToMap(prov_id, line_id, stop_data, color_data);
+
+                            // add vehicles to the map
+                            addVehiclesToMap(line_id, vehicle_data);
+
+                            hideProgress();
+                            return;
+                        }
+
+                    }
+                }
+            }
+
+            /**
+             * Add lines and stops to the map.
+             *
+             * @param province_id Integer. The numerical ID of the province. e.g. "1" for Antwerpen. See API.
+             * @param line_id Integer. The numerical ID of the line. See API.
+             * @param stop_data Object. Information about the stops on the specified line. See API.
+             * @param color_data Object. Information about the colors of the specified line. See API.
+             */
+            function addLineToMap(province_id, line_id, stop_data, color_data)
+            {
+                // calculate stop locations and line markers.
+                const stop_list_to_be_added = [];
+                for(const dir of stop_data["dirs"])
+                {
+                    const line_coords = [];
+
+                    // this can occur if a line is not scheduled.
+                    if(dir["stops"].length == 0)
+                    {
+                        alert("Line " + line_id + " in the direction '" + dir["name"] + "' is currently not availble.");
+                        continue; // next direction
+                    }
+
+                    for(const stop of dir["stops"])
+                    {
+                        const lat = stop["coord"]["lat"];
+                        const long = stop["coord"]["long"];
+
+                        line_coords.push([lat, long]);
+
+                        const stop_marker = L.circle([lat, long], {radius: 7, fill: true, fillOpacity: 1.0, fillColor: '#3388ff', color: '#3388ff'});
+                        stop_marker.on('click', onClickStop);
+                        stop_marker.stopData = stop;
+                        stop_marker.lijnData = {
+                            'prov_id': province_id,
+                            'lijn_id': line_id,
+                            'dir': dir['type']
+                        };
+
+                        stop_list_to_be_added.push(stop_marker);
+                    }
+
+                    // add line to map
+                    L.polyline(line_coords, {color: color_data['color']}).addTo(mymap).bindPopup("Lijn " + line_id + ': ' + dir["name"]);
+                }
+
+                // add stops to map
+                for(const marker of stop_list_to_be_added)
+                {
+                    marker.addTo(mymap);
+                }
+            }
+
+            /**
+             * Add vehicles to the map.
+             *
+             * @param line_id Integer. The numerical ID of the line. See API.
+             * @param vehicle_data Object. Information about the vehicles on the specified line. See API.
+             */
+            function addVehiclesToMap(line_id, vehicle_data)
+            {
+                // add vehicles to map
+                for(const dir of vehicle_data["dirs"]) {
+                    for (const vehicle of dir["vehicles"]) {
+                        const lat = vehicle["coord"]["lat"];
+                        const long = vehicle["coord"]["long"];
+
+                        L.marker([lat, long]).addTo(mymap).bindPopup("Lijn " + line_id + ': ' + dir["name"] + " -- #" + vehicle["seqNr"]);
+                    }
+                }
+            }
+
+            function showProgress()
+            {
+                $("#progressModal").modal();
+            }
+
+            function hideProgress()
+            {
+                 $("#progressModal").modal('hide');
+
+            }
+
+            /**
+             * Callback for clicking on stop (halte) markers.
+             */
+            function onClickStop(event)
+            {
+                const stop_data = event.target.stopData;
+                const lijn_data = event.target.lijnData;
+
+                showProgress();
+
+                const url_weather = "/api/provinces/" + lijn_data["prov_id"] + "/lines/" + lijn_data["lijn_id"] + "/stops/" + stop_data["id"] + "/weather/";
+                makeGetRequestAsync(url_weather, prepare_weather_modal);
+
+                function prepare_weather_modal(weather_data) {
+
+                    if (weather_data == null) {
+                        alert("Cannot retrieve weather from server");
+                        return;
+                    }
+
+                    // set content of modal for current stop
+                    setStopModalInfo(stop_data, weather_data);
+
+                    // stop progress
+                    hideProgress();
+
+                    // open modal
+                    $("#stopModal").modal();
+
+                    return;
+                }
+            }
+
+            /**
+             * Function that sets the content of the modal that displays information about a specific stop.
+             *
+             * @param stopData Information about the stop.
+             * @param weatherData Information about the weather conditions at the stop.
+             */
+            function setStopModalInfo(stopData, weatherData) {
+                document.getElementById("stopModalLabel").innerText = stopData["city"] + " - " + stopData["id"];
+
+                document.getElementById("stopModalWeatherPicture").innerHTML = '<img src="' + weatherData["OWM_icon_url"] + '" alt="Weather information">';
+                document.getElementById("stopModalWeatherTemp").innerText = "Temperature: " + weatherData["temp"] + "°C";
+                document.getElementById("stopModalWeatherWindSpeed").innerText = "Wind speed: " + weatherData["windSpeed"] + "km/h";
+                document.getElementById("stopModalWeatherHum").innerText = "Humidity: " + weatherData["humidity"] + "%";
+                document.getElementById("stopModalWeatherClouds").innerText = "Cloudiness: " + weatherData["clouds"] + "%";
+            }
+
+            /**
+             * Set the "select province" and "select route" fields of the add route modal to initial values.
+             */
+            function resetAddRouteModal()
+            {
+                // get provinces
+                const url_provinces = "/api/provinces/";
+                const data_provinces = makeGetRequest(url_provinces);
+
+                if(data_provinces == null)
+                {
+                    alert("Cannot setup modal: cannot retrieve provinces from server.");
+                    return;
+                }
+
+                // determine options HTML
+                let options_HTML = "";
+                for(const province of data_provinces["provinces"])
+                {
+                    options_HTML += '<option value="' + province["id"] + '">' + province["id"] + ' - ' + province["name"] + '</option>\n';
+                }
+
+                // set options of "addRouteSelectProvince" element
+                document.getElementById("addRouteSelectProvince").innerHTML = options_HTML;
+
+                // update the line selection field.
+                updateAddRouteSelectLine();
+            }
+
+            function updateAddRouteSelectLine()
+            {
+                // get current prov id
+                const prov_id = document.getElementById('addRouteSelectProvince').value;
+
+                // get lines
+                const url_lines = "/api/provinces/" + prov_id + "/lines/";
+                const data_lines = makeGetRequest(url_lines);
+
+                if(data_lines == null)
+                {
+                    alert("Cannot setup modal: cannot retrieve lines from server.");
+                    return;
+                }
+
+                let options_HTML = "";
+                for(const line of data_lines["lines"])
+                {
+                    options_HTML += '<option value="' + line["id"] + '">' + line["id"] + ' - ' + line["name"] + '</option>\n';
+                }
+
+                // set options of "addRouteSelectRoute" element
+                document.getElementById("addRouteSelectRoute").innerHTML = options_HTML;
+            }
+
+            resetAddRouteModal();
+        </script>
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <!-- CDN
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        -->
+
+        <!-- LOCAL -->
+        <script src=" {{ url_for('static', filename='jquery/jquery-3.4.1.min.js') }} "></script>
+        <script src=" {{ url_for('static', filename='popper/popper.min.js') }} "></script>
+        <script src=" {{ url_for('static', filename='bootstrap/js/bootstrap.min.js') }} "></script>
+
+    </body>
+</html>

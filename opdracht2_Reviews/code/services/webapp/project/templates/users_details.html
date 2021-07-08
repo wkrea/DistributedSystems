@@ -1,0 +1,71 @@
+{% extends 'layout.html' %}
+
+
+{% block body %}
+
+<h4>User info:</h4>
+
+<ul>
+	<li>Username: {{ user.username }}</li>
+	<li>Email: {{ user.email }}</li>
+</ul>
+
+<br>
+<h4>Vehicle reviews:</h4>
+
+<table style="width:100%">
+	<tr>
+		<th>Vehicle ID</th>
+		<th>Vehicle Type</th>
+		<th>Rating</th>
+		<th>Details</th>
+	</tr>
+
+	{% for review in vehicle_reviews %}
+		<tr>
+			<td>{{ review.vehicleNr }}</td>
+			<td>{{ review.vehicleType }}</td>
+			<td>{{ review.score }}</td>
+			<td><a href="/vehicles/{{review.vehicleNr}}/">Details</a></td>
+		</tr>
+	{% endfor %}
+
+</table>
+<br>
+<h4>Stop reviews:</h4>
+
+<table style="width:100%">
+	<tr>
+		<th>Stop ID</th>
+		<th>Rating</th>
+		<th>Details</th>
+	</tr>
+
+	{% for review in stop_reviews %}
+		<tr>
+			<td>{{ review.stopId }}</td>
+			<td>{{ review.score }}</td>
+			<td><a href="/stops/{{review.stopId}}/">Details</a></td>
+		</tr>
+	{% endfor %}
+</table>
+<br>
+<h4>Added vehicles:</h4>
+
+<table style="width:100%">
+	<tr>
+		<th>Vehicle Number</th>
+		<th>Vehicle Type</th>
+		<th>Details</th>
+	</tr>
+
+	{% for vehicle in vehicles %}
+		<tr>
+			<td>{{ vehicle.vehicleNr }}</td>
+			<td>{{ vehicle.vehicleType }}</td>
+			<td><a href="/vehicles/{{vehicle.vehicleNr}}/">Details</a></td>
+		</tr>
+	{% endfor %}
+</table>
+
+{% endblock %}

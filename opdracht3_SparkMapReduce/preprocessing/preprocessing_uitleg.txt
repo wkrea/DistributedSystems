@@ -1,0 +1,36 @@
+stops.txt => converted_stops.csv
+================================
+
+Deze file was oorspronkelijk een JSON file van alle haltes van Delijn. Ik heb deze omgezet naar een CSV file zodat
+elke lijn in de file een halte bevat. Daarnaast kan de file eenvoudig geparsed worden met str.split() en str.strip().
+
+Elke lijn in de CSV file is van het formaat "<halte id>; <halte naam>; <lat>; <long>; <halte district>\n".
+
+De eigenlijke inhoud van de file, alsook het totale aantal haltes is ongewijzigd gebleven.
+
+citizens2.txt => town_pop_map.csv
+=================================
+
+Elke lijn in de file "citizens2.txt" was van het formaat "<gemeente naam> <pop>\n". Ik heb deze file
+omgezet naar een CSV waarvan elke lijn geformateerd was als "<gemeente naame>; <pop>\n". Daarnaast bevatte
+de populaties in de originele naam een punt tussen de duizendtallen, deze is verwijderd.
+
+zipcodes.csv => zipcodes_utf8.csv
+=================================
+
+De originele zipcodes.csv stond in een raar formaat, ik heb deze omgezet naar utf8 zodat Python het kon inlezen.
+
+zipcodes_utf8.csv => coord_map.csv
+==================================
+
+Ik heb de zipcode csv gefilterd zodat deze alleen nutte kolommen bevatte. De oude file bevatte lijnen
+"<postcode>; <district naam>; <lat>; <long>; <google maps url>\n".
+
+De nieuwe file bevat lijnen "<district naam>; <lat>; <long>\n".
+
+flemish_districts.txt => townname_map.csv
+=========================================
+
+De file "flemish_districts.txt" bevatte oorspronkelijk lijnen van het formaat "<gemeente naam> : <district naam>[, <district naam>]\n".
+Ik heb deze omgevormd tot een CSV file waarbij elke lijn een district naam mapt op een gemeente naam: "<district naam>;<gemeente naam>\n".
+

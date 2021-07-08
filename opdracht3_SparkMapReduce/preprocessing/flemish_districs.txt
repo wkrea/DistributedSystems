@@ -1,0 +1,308 @@
+Aalst : Aalst, Gijzegem, Hofstade, Baardegem, Herdersem, Meldert, Moorsel, Erembodegem, Nieuwerkerken
+Aalter : Aalter, Bellem, Lotenhulle, Poeke
+Aarschot : Aarschot, Gelrode, Langdorp, Rillaar
+Aartselaar : Aartselaar
+Affligem : Essene, Hekelgem, Teralfene
+Alken : Alken
+Alveringem : Alveringem, Hoogstade, Oeren, Sint-Rijkers, Beveren, Gijverinkhove, Izenberge, Leisele, Stavele
+Antwerpen :	Antwerpen, Berendrecht-Zandvliet-Lillo, Deurne, Borgerhout, Merksem, Ekeren, Berchem, Hoboken, Wilrijk
+Anzegem	: Anzegem, Gijzelbrechtegem, Ingooigem, Vichte, Kaster, Tiegem
+Ardooie	: Ardooie, Koolskamp
+Arendonk : Arendonk
+As : As, Niel-bij-As
+Asse : Asse, Bekkerzeel, Kobbegem, Mollem, Relegem, Zellik
+Assenede : Assenede, Boekhoute, Bassevelde, Oosteeklo
+Avelgem	: Avelgem, Kerkhove, Waarmaarde, Outrijve, Bossuit
+Baarle-Hertog : Baarle-Hertog
+Balen : Balen, Olmen
+Beernem : Beernem, Oedelem, Sint-Joris
+Beerse : Beerse, Vlimmeren
+Beersel : Beersel, Lot, Alsemberg, Dworp, Huizingen
+Begijnendijk : Begijnendijk, Betekom
+Bekkevoort : Bekkevoort, Assent, Molenbeek-Wersbeek
+Beringen : Beringen, Beverlo, Koersel, Stal, Paal
+Berlaar : Berlaar, Gestel
+Berlare : Berlare, Overmere, Uitbergen
+Bertem : Bertem, Korbeek-Dijle, Leefdaal
+Bever : Bever
+Beveren	: Beveren, Haasdonk, Melsele, Vrasene, Kallo, Doel, Kieldrecht, Verrebroek
+Bierbeek : Bierbeek, Korbeek-Lo, Lovenjoel, Opvelp
+Bilzen : Bilzen, Beverst, Eigenbilzen, Grote-Spouwen, Hees, Kleine-Spouwen, Mopertingen, Munsterbilzen, Rijkhoven, Rosmeer, Waltwilder, Martenslinde, Hoelbeek
+Blankenberge : Blankenberge, Uitkerke
+Bocholt : Bocholt, Kaulille, Reppel
+Boechout : Boechout, Vremde
+Bonheiden : Bonheiden, Rijmenam
+Boom : Boom
+Boortmeerbeek : Boortmeerbeek, Hever
+Borgloon : Borgloon, Bommershoven, Broekom, Gors-Opleeuw, Gotem, Groot-Loon, Hendrieken, Hoepertingen, Jesseren, Kerniel, Kuttekoven, Rijkel, Voort
+Bornem : Bornem, Weert, Mariekerke, Hingene
+Borsbeek : Borsbeek
+Boutersem : Boutersem, Kerkom, Neervelp, Roosbeek, Vertrijk, Willebringen
+Brakel : Elst, Everbeek, Michelbeke, Nederbrakel, Opbrakel, Zegelsem, Parike
+Brasschaat : Brasschaat
+Brecht : Brecht, Sint-Job-in-'t-Goor, Sint-Lenaarts
+Bredene : Bredene
+Bree : Beek, Bree, Gerdingen, Opitter, Tongerlo
+Brugge : Brugge, Koolkerke, Sint-Andries, Sint-Michiels, Assebroek, Sint-Kruis, Dudzele, Lissewege
+Buggenhout : Buggenhout, Opdorp
+Damme : Damme, Hoeke, Lapscheure, Moerkerke, Oostkerke, Sijsele
+De Haan	: Klemskerke, Wenduine, Vlissegem
+De Panne : De Panne, Adinkerke
+De Pinte : De Pinte, Zevergem
+Deerlijk : Deerlijk
+Deinze : Deinze, Astene, Bachte-Maria-Leerne, Gottem, Grammene, Meigem, Petegem-aan-de-Leie, Sint-Martens-Leerne, Vinkt, Wontergem, Zeveren
+Denderleeuw : Denderleeuw, Iddergem, Welle
+Dendermonde : Dendermonde, Appels, Baasrode, Grembergen, Mespelare, Oudegem, Schoonaarde, Sint-Gillis-bij-Dendermonde
+Dentergem : Dentergem, Markegem, Oeselgem, Wakken
+Dessel : Dessel
+Destelbergen : Destelbergen, Heusden
+Diepenbeek : Diepenbeek
+Diest : Diest, Deurne, Kaggevinne, Molenstede, Schaffen, Webbekom
+Diksmuide : Diksmuide, Beerst, Esen, Kaaskerke, Keiem, Lampernisse, Leke, Nieuwkapelle, Oostkerke, Oudekapelle, Pervijze, Sint-Jacobs-Kapelle, Stuivekenskerke, Vladslo, Woumen
+Dilbeek : Dilbeek, Sint-Martens-Bodegem, Sint-Ulriks-Kapelle, Itterbeek, Groot-Bijgaarden, Schepdaal
+Dilsen-Stokkem : Dilsen, Elen, Lanklaar, Rotem, Stokkem
+Drogenbos : Drogenbos
+Duffel : Duffel
+Edegem : Edegem
+Eeklo : Eeklo
+Erpe-Mere : Aaigem, Bambrugge, Burst, Erondegem, Erpe, Mere, Ottergem, Vlekkem
+Essen : Essen
+Evergem	gem : Evergem, Ertvelde, Sleidinge, Kluizen
+Galmaarden : Galmaarden, Tollembeek, Vollezele
+Gavere : Gavere, Asper, Baaigem, Dikkelvenne, Semmerzake, Vurste
+Geel : Geel
+Geetbets : Geetbets, Grazen, Rummen
+Genk : Genk
+Gent : Gent, Mariakerke, Drongen, Wondelgem, Sint-Amandsberg, Oostakker, Desteldonk, Mendonk, Sint-Kruis-Winkel, Gentbrugge, Ledeberg, Afsnee, Sint-Denijs-Westrem, Zwijnaarde
+Geraardsbergen : Geraardsbergen, Goeferdinge, Moerbeke, Nederboelare, Onkerzele, Ophasselt, Overboelare, Viane, Zarlardinge, Grimminge, Idegem, Nieuwenhove, Schendelbeke, Smeerebbe-Vloerzegem, Waarbeke, Zandbergen
+Gingelom : Gingelom, Boekhout, Jeuk, Kortijs, Montenaken, Niel-bij-Sint-Truiden, Vorsen, Borlo, Buvingen, Mielen-boven-Aalst, Muizen
+Gistel : Gistel, Moere, Snaaskerke, Zevekote
+Glabbeek : Bunsbeek, Glabbeek-Zuurbemde, Kapellen, Attenrode
+Gooik : Gooik, Kester, Leerbeek, Oetingen
+Grimbergen : Grimbergen, Humbeek, Beigem, Strombeek-Bever
+Grobbendonk : Grobbendonk, Bouwel
+Haacht : Haacht, Tildonk, Wespelaar
+Haaltert : Haaltert, Denderhoutem, Heldergem, Kerksken
+Halen : Halen, Loksbergen, Zelem
+Halle : Halle, Buizingen, Lembeek
+Ham	: Kwaadmechelen, Oostham
+Hamme : Hamme, Moerzeke
+Hamont-Achel : Achel, Hamont
+Harelbeke : Harelbeke, Bavikhove, Hulste
+Hasselt	stad : Hasselt, Sint-Lambrechts-Herk, Wimmertingen, Kermt, Spalbeek, Kuringen, Stokrooie, Stevoort
+Hechtel-Eksel : Hechtel, Eksel
+Heers : Heers, Batsheers, Gutschoven, Heks, Horpmaal, Klein-Gelmen, Mechelen-Bovelingen, Mettekoven, Opheers, Rukkelingen-Loon, Vechmaal, Veulen
+Heist-op-den-Berg : Heist-op-den-Berg, Hallaar, Booischot, Itegem, Wiekevorst, Schriek
+Hemiksem : Hemiksem
+Herent : Herent, Veltem-Beisem, Winksele
+Herentals : Herentals, Morkhoven, Noorderwijk
+Herenthout : Herenthout
+Herk-de-Stad : Herk-de-Stad, Berbroek, Donk, Schulen
+Herne : Herne, Herfelingen, Sint-Pieters-Kapelle
+Herselt : Herselt, Ramsel
+Herstappe : Herstappe
+Herzele : Herzele, Hillegem, Sint-Antelinks, Sint-Lievens-Esse, Steenhuize-Wijnhuize, Woubrechtegem, Ressegem, Borsbeke
+Heusden-Zolder : Heusden, Zolder
+Heuvelland : Nieuwkerke, Dranouter, Wulvergem, Wijtschate, Westouter, Kemmel, Loker
+Hoegaarden : Hoegaarden, Meldert, Outgaarden
+Hoeilaart : Hoeilaart
+Hoeselt : Hoeselt, Romershoven, Sint-Huibrechts-Hern, Werm, Schalkhoven
+Holsbeek : Holsbeek, Kortrijk-Dutsel, Sint-Pieters-Rode, Nieuwrode
+Hooglede : Hooglede, Gits
+Hoogstraten : Hoogstraten, Meer, Minderhout, Wortel, Meerle
+Horebeke : Sint-Kornelis-Horebeke, Sint-Maria-Horebeke
+Houthalen-Helchteren : Helchteren, Houthalen
+Houthulst : Houthulst, Klerken, Merkem
+Hove : Hove
+Huldenberg : Huldenberg, Loonbeek, Neerijse, Ottenburg, Sint-Agatha-Rode
+Hulshout : Hulshout, Houtvenne, Westmeerbeek
+Ichtegem : Ichtegem, Bekegem, Eernegem
+Ieper : Ieper, Brielen, Dikkebus, Sint-Jan, Hollebeke, Voormezele, Zillebeke, Boezinge, Zuidschote, Elverdinge, Vlamertinge
+Ingelmunster : Ingelmunster
+Izegem : Izegem, Emelgem, Kachtem
+Jabbeke : Jabbeke, Snellegem, Stalhille, Varsenare, Zerkegem
+Kalmthout : Kalmthout
+Kampenhout : Kampenhout, Berg, Buken, Nederokkerzeel
+Kapellen : Kapellen
+Kapelle-op-den-Bos : Kapelle-op-den-Bos, Nieuwenrode, Ramsdonk
+Kaprijke : Kaprijke, Lembeke
+Kasterlee : Kasterlee, Lichtaart, Tielen
+Keerbergen : Keerbergen
+Kinrooi	: Kinrooi, Kessenich, Molenbeersel, Ophoven
+Kluisbergen	: Berchem, Kwaremont, Ruien, Zulzeke
+Knesselare : Knesselare, Ursel
+Knokke-Heist : Knokke, Westkapelle, Heist, Ramskapelle
+Koekelare : Koekelare, Bovekerke, Zande
+Koksijde : Koksijde, Oostduinkerke, Wulpen
+Kontich : Kontich, Waarloos
+Kortemark : Kortemark, Handzame, Werken, Zarren
+Kortenaken : Kortenaken, Ransberg, Hoeleden, Kersbeek-Miskom, Waanrode
+Kortenberg : Kortenberg, Erps-Kwerps, Everberg, Meerbeek
+Kortessem : Kortessem, Vliermaalroot, Wintershoven, Guigoven, Vliermaal
+Kortrijk : Kortrijk, Bissegem, Heule, Bellegem, Kooigem, Marke, Rollegem, Aalbeke
+Kraainem : Kraainem
+Kruibeke : Kruibeke, Bazel, Rupelmonde
+Kruishoutem : Kruishoutem, Nokere, Wannegem-Lede
+Kuurne : Kuurne
+Laakdal : Eindhout, Vorst, Varendonk, Veerle
+Laarne : Laarne, Kalken
+Lanaken : Lanaken, Gellik, Neerharen, Veldwezelt, Rekem
+Landen : Landen, Eliksem, Ezemaal, Laar, Neerwinden, Overwinden, Rumsdorp, Wange, Waasmont, Walsbets, Walshoutem, Wezeren, Attenhoven, Neerlanden
+Langemark-Poelkapelle : Bikschote, Langemark, Poelkapelle
+Lebbeke	: Lebbeke, Denderbelle, Wieze
+Lede : Lede, Impe, Oordegem, Smetlede, Wanzele
+Ledegem : Ledegem, Rollegem-Kapelle, Sint-Eloois-Winkel
+Lendelede : Lendelede
+Lennik : Gaasbeek, Sint-Kwintens-Lennik, Sint-Martens-Lennik
+Leopoldsburg : Leopoldsburg, Heppen
+Leuven : Leuven, Heverlee, Kessel-Lo, Wilsele, Wijgmaal
+Lichtervelde : Lichtervelde
+Liedekerke : Liedekerke
+Lier : Lier, Koningshooikt
+Lierde : Deftinge, Sint-Maria-Lierde, Hemelveerdegem, Sint-Martens-Lierde
+Lille : Lille, Gierle, Poederlee, Wechelderzande
+Linkebeek : Linkebeek
+Lint : Lint
+Linter : Drieslinter, Melkwezer, Neerhespen, Neerlinter, Orsmaal-Gussenhoven, Overhespen, Wommersom
+Lochristi : Lochristi, Beervelde, Zaffelare, Zeveneken
+Lokeren : Lokeren, Daknam, Eksaarde
+Lommel : Lommel
+Londerzeel : Londerzeel, Malderen, Steenhuffel
+Lo-Reninge : Lo, Noordschote, Pollinkhove, Reninge
+Lovendegem : Lovendegem, Vinderhoute
+Lubbeek : Lubbeek, Linden, Binkom, Pellenberg
+Lummen : Lummen, Linkhout, Meldert
+Maarkedal : Etikhove, Maarke-Kerkem, Nukerke, Schorisse
+Maaseik	stad : Maaseik, Neeroeteren, Opoeteren
+Maasmechelen : Eisden, Leut, Mechelen-aan-de-Maas, Meeswijk, Opgrimbie, Vucht, Boorsem, Uikhoven
+Machelen : Machelen, Diegem
+Maldegem : Maldegem, Adegem, Middelburg
+Malle : Oostmalle, Westmalle
+Mechelen : Mechelen, Walem, Heffen, Hombeek, Leest, Muizen
+Meerhout : Meerhout
+Meeuwen-Gruitrode : Ellikom, Gruitrode, Meeuwen, Neerglabbeek, Wijshagen
+Meise : Meise, Wolvertem
+Melle : Melle, Gontrode
+Menen : Menen, Lauwe, Rekkem
+Merchtem : Merchtem, Brussegem, Hamme
+Merelbeke : Merelbeke, Bottelare, Lemberge, Melsen, Munte, Schelderode
+Merksplas : Merksplas
+Mesen : Mesen
+Meulebeke : Meulebeke
+Middelkerke : Middelkerke, Wilskerke, Leffinge, Mannekensvere, Schore, Sint-Pieters-Kapelle, Slijpe, Lombardsijde, Westende
+Moerbeke : Moerbeke
+Mol	: Mol
+Moorslede : Moorslede, Dadizele
+Mortsel : Mortsel
+Nazareth : Nazareth, Eke
+Neerpelt : Neerpelt, Sint-Huibrechts-Lille
+Nevele : Nevele, Hansbeke, Landegem, Merendree, Poesele, Vosselare
+Niel : Niel
+Nieuwerkerken : Nieuwerkerken, Binderveld, Kozen, Wijer
+Nieuwpoort : Nieuwpoort, Ramskapelle, Sint-Joris
+Nijlen : Nijlen, Bevel, Kessel
+Ninove : Ninove, Appelterre-Eichem, Denderwindeke, Lieferinge, Nederhasselt, Okegem, Voorde, Pollare, Meerbeke, Neigem, Aspelare, Outer
+Olen : Olen
+Oostende : Oostende, Stene, Zandvoorde
+Oosterzele : Oosterzele, Balegem, Gijzenzele, Landskouter, Moortsele, Scheldewindeke
+Oostkamp : Oostkamp, Hertsberge, Ruddervoorde, Waardamme
+Oostrozebeke : Oostrozebeke
+Opglabbeek : Opglabbeek
+Opwijk : Opwijk, Mazenzele
+Oudenaarde : Oudenaarde, Bevere, Edelare, Eine, Ename, Heurne, Leupegem, Mater, Melden, Mullem, Nederename, Volkegem, Welden
+Oudenburg : Oudenburg, Ettelgem, Roksem, Westkerke
+Oud-Heverlee : Oud-Heverlee, Sint-Joris-Weert, Blanden, Haasrode, Vaalbeek
+Oud-Turnhout : Oud-Turnhout
+Overijse : Overijse
+Overpelt : Overpelt
+Peer : Peer, Grote-Brogel, Kleine-Brogel, Wijchmaal
+Pepingen : Pepingen, Bogaarden, Heikruis, Elingen, Beert, Bellingen
+Pittem : Pittem, Egem
+Poperinge : Poperinge, Reningelst, Krombeke, Proven, Roesbrugge-Haringe, Watou
+Putte : Putte, Beerzel
+Puurs : Puurs, Breendonk, Liezele, Ruisbroek
+Ranst : Ranst, Broechem, Emblem, Oelegem
+Ravels : Ravels, Weelde, Poppel
+Retie : Retie
+Riemst : Riemst, Genoelselderen, Herderen, Kanne, Membruggen, Millen, Val-Meer, Vlijtingen, Vroenhoven, Zichen-Zussen-Bolder
+Rijkevorsel : Rijkevorsel
+Roeselare : Roeselare, Beveren, Oekene, Rumbeke
+Ronse : Ronse
+Roosdaal : Onze-Lieve-Vrouw-Lombeek, Pamel, Strijtem, Borchtlombeek
+Rotselaar : Rotselaar, Wezemaal, Werchter
+Ruiselede : Ruiselede
+Rumst : Rumst, Reet, Terhagen
+Schelle : Schelle
+Scherpenheuvel-Zichem : Scherpenheuvel, Averbode, Zichem, Messelbroek, Testelt
+Schilde	gem : Schilde, 's-Gravenwezel
+Schoten	gem : Schoten
+Sint-Amands	: Sint-Amands, Lippelo, Oppuurs
+Sint-Genesius-Rode : Sint-Genesius-Rode
+Sint-Gillis-Waas : Sint-Gillis-Waas, De Klinge, Meerdonk, Sint-Pauwels
+Sint-Katelijne-Waver : Sint-Katelijne-Waver, Onze-Lieve-Vrouw-Waver
+Sint-Laureins : Sint-Laureins, Sint-Jan-in-Eremo, Sint-Margriete, Waterland-Oudeman, Watervliet
+Sint-Lievens-Houtem : Sint-Lievens-Houtem, Letterhoutem, Bavegem, Zonnegem, Vlierzele
+Sint-Martens-Latem : Sint-Martens-Latem, Deurle
+Sint-Niklaas : Sint-Niklaas, Nieuwkerken-Waas, Belsele, Sinaai
+Sint-Pieters-Leeuw : Sint-Pieters-Leeuw, Oudenaken, Sint-Laureins-Berchem, Ruisbroek, Vlezenbeek
+Sint-Truiden: Sint-Truiden, Aalst, Brustem, Engelmanshoven, Gelinden, Groot-Gelmen, Halmaal, Kerkom-bij-Sint-Truiden, Ordingen, Zepperen, Duras, Gorsem, Runkelen, Wilderen, Velm
+Spiere-Helkijn : Helkijn, Spiere
+Stabroek : Stabroek, Hoevenen
+Staden : Staden, Oostnieuwkerke, Westrozebeke
+Steenokkerzeel : Steenokkerzeel, Melsbroek, Perk
+Stekene : Stekene, Kemzeke
+Temse : Temse, Elversele, Steendorp, Tielrode
+Ternat : Ternat, Sint-Katherina-Lombeek, Wambeek
+Tervuren : Tervuren, Duisburg, Vossem
+Tessenderlo : Tessenderlo
+Tielt : Tielt, Aarsele, Kanegem, Schuiferskapelle
+Tielt-Winge	: Houwaart, Meensel-Kiezegem, Sint-Joris-Winge, Tielt
+Tienen : Tienen, Bost, Goetsenhoven, Hakendover, Kumtich, Oorbeek, Oplinter, Sint-Margriete-Houtem, Vissenaken
+Tongeren : Tongeren, Berg, Diets-Heur, Henis, 's Herenelderen, Koninksem, Lauw, Mal, Neerrepen, Nerem, Overrepen, Piringen, Riksingen, Rutten, Sluizen, Vreren, Widooie
+Torhout : Torhout
+Tremelo : Tremelo, Baal
+Turnhout : Turnhout
+Veurne : Veurne, Avekapelle, Booitshoeke, Bulskamp, De Moeren, Eggewaartskapelle, Houtem, Steenkerke, Vinkem, Wulveringem, Zoutenaaie
+Vilvoorde : Vilvoorde, Peutie
+Vleteren : Oostvleteren, Westvleteren, Woesten
+Voeren: Moelingen, Remersdaal, 's-Gravenvoeren, Sint-Martens-Voeren, Sint-Pieters-Voeren, Teuven
+Vorselaar : Vorselaar
+Vosselaar : Vosselaar
+Waarschoot : Waarschoot
+Waasmunster : Waasmunster
+Wachtebeke : Wachtebeke
+Waregem : Waregem, Beveren, Desselgem, Sint-Eloois-Vijve
+Wellen : Wellen, Berlingen, Herten, Ulbeek
+Wemmel : Wemmel
+Wervik : Wervik, Geluwe
+Westerlo : Westerlo, Oevel, Tongerlo, Zoerle-Parwijs
+Wetteren : Wetteren, Massemen, Westrem
+Wevelgem : Wevelgem, Gullegem, Moorsele
+Wezembeek-Oppem : Wezembeek-Oppem
+Wichelen : Wichelen, Schellebelle, Serskamp
+Wielsbeke : Wielsbeke, Ooigem, Sint-Baafs-Vijve
+Wijnegem : Wijnegem
+Willebroek : Willebroek, Blaasveld, Heindonk, Tisselt
+Wingene	: Wingene, Zwevezele
+Wommelgem : Wommelgem
+Wortegem-Petegem : Elsegem, Moregem, Ooike, Petegem-aan-de-Schelde, Wortegem
+Wuustwezel : Wuustwezel, Loenhout
+Zandhoven : Zandhoven, Massenhoven, Pulderbos, Pulle, Viersel
+Zaventem : Zaventem, Nossegem, Sint-Stevens-Woluwe, Sterrebeek
+Zedelgem : Aartrijke, Loppem, Veldegem, Zedelgem
+Zele : Zele
+Zelzate : Zelzate
+Zemst : Zemst, Eppegem, Elewijt, Hofstade, Weerde
+Zingem : Zingem, Huise, Ouwegem
+Zoersel : Zoersel, Halle
+Zomergem : Zomergem, Oostwinkel, Ronsele
+Zonhoven : Zonhoven
+Zonnebeke : Zonnebeke, Beselare, Geluveld, Passendale, Zandvoorde
+Zottegem : Zottegem, Elene, Erwetegem, Godveerdegem, Grotenberge, Leeuwergem, Sint-Goriks-Oudenhove, Strijpen, Velzeke-Ruddershove, Oombergen, Sint-Maria-Oudenhove
+Zoutleeuw : Zoutleeuw, Budingen, Dormaal, Halle-Booienhoven, Helen-Bos
+Zuienkerke : Zuienkerke, Meetkerke, Houtave, Nieuwmunster
+Zulte : Zulte, Olsene, Machelen
+Zutendaal : Zutendaal
+Zwalm : Beerlegem, Dikkele, Hundelgem, Meilegem, Munkzwalm, Nederzwalm-Hermelgem, Paulatem, Roborst, Rozebeke, Sint-Blasius-Boekel, Sint-Denijs-Boekel, Sint-Maria-Latem
+Zwevegem : Zwevegem, Heestert, Moen, Otegem, Sint-Denijs
+Zwijndrecht : Zwijndrecht, Burcht

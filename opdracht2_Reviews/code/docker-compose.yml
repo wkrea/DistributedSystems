@@ -1,0 +1,163 @@
+version: '3.7'
+
+services:
+
+  # reverse proxy that redirects traffic to the right container
+  nginx_reverse_proxy:
+    image: nginx:latest
+    volumes:
+      - ./services/nginx_reverse_proxy/nginx.conf:/etc/nginx/nginx.conf
+    ports:
+        - 5000:5000
+    depends_on:
+      - users
+      - webapp
+      - vehicles
+      - vehiclereviews
+      - stops
+      - stopreviews
+
+  #service that presents the user with an interface
+  webapp: # SERVICE NAME
+    build:
+      context: ./services/webapp # SERVICE CODE
+      dockerfile: Dockerfile
+    volumes:
+      - './services/webapp:/usr/src/app' # MOUNTPOINT FOR CODE
+    environment: # ENVIRONMENT VARIABLES
+      - FLASK_APP=project/__init__.py
+      - FLASK_ENV=development
+      - APP_SETTINGS=project.config.DevelopmentConfig
+    expose:
+      - "5000"
+
+
+  # service that provides a way to register and authenticate users
+  users: # SERVICE NAME
+    build:
+      context: ./services/users # SERVICE CODE
+      dockerfile: Dockerfile
+    volumes:
+      - './services/users:/usr/src/app' # MOUNTPOINT FOR CODE
+    environment: # ENVIRONMENT VARIABLES
+      - FLASK_APP=project/__init__.py
+      - FLASK_ENV=development
+      - APP_SETTINGS=project.config.DevelopmentConfig
+      - DATABASE_URL=postgres://postgres:postgres@users-db:5432/users # ...@<container_name>:<port>/<db_name>
+    depends_on:
+      - users-db
+    expose:
+      - "5000"
+
+  # service that provides the "users" service with an SQL database
+  users-db: # SERVICE NAME
+    build:
+      context: ./services/users/project/db # SERVICE CODE
+      dockerfile: Dockerfile
+    expose:
+      - "5432"
+    environment: # ENVIRONMENT VARIABLES
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+
+
+  # service that provides a way to register and authenticate users
+  vehicles: # SERVICE NAME
+    build:
+      context: ./services/vehicles # SERVICE CODE
+      dockerfile: Dockerfile
+    volumes:
+      - './services/vehicles:/usr/src/app' # MOUNTPOINT FOR CODE
+    environment: # ENVIRONMENT VARIABLES
+      - FLASK_APP=project/__init__.py
+      - FLASK_ENV=development
+      - APP_SETTINGS=project.config.DevelopmentConfig
+      - DATABASE_URL=postgres://postgres:postgres@vehicles-db:5432/vehicles # ...@<container_name>:<port>/<db_name>
+    depends_on:
+      - vehicles-db
+    expose:
+      - "5000"
+
+  # service that provides the "vehicles" service with an SQL database
+  vehicles-db: # SERVICE NAME
+    build:
+      context: ./services/vehicles/project/db # SERVICE CODE
+      dockerfile: Dockerfile
+    expose:
+      - "5432"
+    environment: # ENVIRONMENT VARIABLES
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+
+
+  # service that provides a way to assign scores to vehicles
+  vehiclereviews: # SERVICE NAME
+    build:
+      context: ./services/vehiclereviews # SERVICE CODE
+      dockerfile: Dockerfile
+    volumes:
+      - './services/vehiclereviews:/usr/src/app' # MOUNTPOINT FOR CODE
+    environment: # ENVIRONMENT VARIABLES
+      - FLASK_APP=project/__init__.py
+      - FLASK_ENV=development
+      - APP_SETTINGS=project.config.DevelopmentConfig
+      - DATABASE_URL=postgres://postgres:postgres@vehiclereviews-db:5432/vehiclereviews # ...@<container_name>:<port>/<db_name>
+    depends_on:
+      - vehiclereviews-db
+    expose:
+      - "5000"
+
+  # service that provides the "vehiclereviews" service with an SQL database
+  vehiclereviews-db: # SERVICE NAME
+    build:
+      context: ./services/vehiclereviews/project/db # SERVICE CODE
+      dockerfile: Dockerfile
+    expose:
+      - "5432"
+    environment: # ENVIRONMENT VARIABLES
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+
+
+  # service that provides a way to retrieve tram and bus stops
+  stops: # SERVICE NAME
+    build:
+      context: ./services/stops # SERVICE CODE
+      dockerfile: Dockerfile
+    volumes:
+      - './services/stops:/usr/src/app' # MOUNTPOINT FOR CODE
+    environment: # ENVIRONMENT VARIABLES
+      - FLASK_APP=project/__init__.py
+      - FLASK_ENV=development
+      - APP_SETTINGS=project.config.DevelopmentConfig
+    expose:
+      - "5000"
+
+
+  # service that provides a way to assign scores to stops
+  stopreviews: # SERVICE NAME
+    build:
+      context: ./services/stopreviews # SERVICE CODE
+      dockerfile: Dockerfile
+    volumes:
+      - './services/stopreviews:/usr/src/app' # MOUNTPOINT FOR CODE
+    environment: # ENVIRONMENT VARIABLES
+      - FLASK_APP=project/__init__.py
+      - FLASK_ENV=development
+      - APP_SETTINGS=project.config.DevelopmentConfig
+      - DATABASE_URL=postgres://postgres:postgres@stopreviews-db:5432/stopreviews # ...@<container_name>:<port>/<db_name>
+    depends_on:
+      - stopreviews-db
+    expose:
+      - "5000"
+
+  # service that provides the "stopreviews" service with an SQL database
+  stopreviews-db: # SERVICE NAME
+    build:
+      context: ./services/stopreviews/project/db # SERVICE CODE
+      dockerfile: Dockerfile
+    expose:
+      - "5432"
+    environment: # ENVIRONMENT VARIABLES
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres

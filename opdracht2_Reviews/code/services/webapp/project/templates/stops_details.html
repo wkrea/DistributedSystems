@@ -1,0 +1,115 @@
+{% extends 'layout.html' %}
+
+
+{% block body %}
+
+<h4>Stop info:</h4>
+
+<ul>
+    <li>Stop ID: {{ stop.stopId }}</li>
+    <li>Average rating: {{ stop.score }}</li>
+</ul>
+
+<div class="modal fade" id="createReviewModal" tabindex="-1" role="dialog" aria-labelledby="createReviewModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="createReviewModalLabel">Add Review</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="createReviewModalBody">
+                <input type="hidden" name="stopId" id="createReview_stopId" value="{{ stop.stopId }}"/>
+                Please enter your username and password.
+                <div class="form-group">
+                    <label for="createReview_username">Username</label>
+                    <input type="text" name="username" class="form-control" id="createReview_username"/>
+                </div>
+                <div class="form-group">
+                    <label for="createReview_password">Password</label>
+                    <input type="password" name="password" class="form-control" id="createReview_password"/>
+                </div>
+                Please enter the score for this stop.
+                <div class="form-group">
+                    <label for="createReview_score">Score</label>
+                    <input type="text" name="score" class="form-control" id="createReview_score"/>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-success" onclick="doCreateReview()">Add</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<button type="button" class="btn btn-success" data-toggle="modal" data-target="#createReviewModal">Add Review</button><br><br>
+
+<h4>Reviews:</h4>
+
+<table style="width:100%">
+    <tr>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Rating</th>
+        <th>Details</th>
+    </tr>
+
+    {% for review in reviews %}
+        <tr>
+            <td>{{ review.username }}</td>
+            <td>{{ review.email }}</td>
+            <td>{{ review.score }}</td>
+            <td><a href="/users/{{ review.userId }}/">Details</a></td>
+        </tr>
+    {% endfor %}
+
+</table>
+
+<script>
+
+    /**
+     * Function that submits the create review form to the vehicle review API.
+     */
+    function doCreateReview()
+    {
+        const url = "/api/stopreviews/create/"
+
+        const header = {
+            'username': document.getElementById("createReview_username").value,
+            'password': document.getElementById("createReview_password").value
+        };
+
+        const score = document.getElementById("createReview_score").value;
+
+        if(!checkScoreValue(score))
+        {
+            alert("The specified score needs to be a valid number between 0 and 10.");
+            return;
+        }
+
+        const body = {
+            'stopId': document.getElementById("createReview_stopId").value,
+            'score':  document.getElementById("createReview_score").value,
+        }
+
+        $('#createReviewModal').modal('hide');
+
+        makeRequestAsync(url, "POST", finishCreateReview, header, body)
+
+        function finishCreateReview(response_data)
+        {
+            if(response_data['responseCode'] != 200)
+            {
+                alert(response_data['errorMessage']);
+            }
+
+            reloadPage();
+        }
+    }
+
+</script>
+
+{% endblock %}
+

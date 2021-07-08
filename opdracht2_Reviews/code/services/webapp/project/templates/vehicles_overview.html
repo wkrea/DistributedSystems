@@ -1,0 +1,181 @@
+{% extends 'layout.html' %}
+
+
+{% block body %}
+
+<div class="modal fade" id="deleteVehicleModal" tabindex="-1" role="dialog" aria-labelledby="deleteVehicleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteVehicleModalLabel">Delete Vehicle</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="deleteVehicleModalBody">
+                Please enter your username and password.
+                <input type="hidden" id="deleteVehicle_vehicleNr" value=""/>
+                <div class="form-group">
+                    <label for="deleteVehicle_username">Username</label>
+                    <input type="text" name="username" class="form-control" id="deleteVehicle_username"/>
+                </div>
+                <div class="form-group">
+                    <label for="deleteVehicle_password">Password</label>
+                    <input type="password" name="password" class="form-control" id="deleteVehicle_password"/>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" onclick="doDeleteVehicle()">Delete</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="createVehicleModal" tabindex="-1" role="dialog" aria-labelledby="createVehicleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="createVehicleModalLabel">Add Vehicle</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="createVehicleModalBody">
+                Please enter your username and password.
+                <div class="form-group">
+                    <label for="createVehicle_username">Username</label>
+                    <input type="text" name="username" class="form-control" id="createVehicle_username"/>
+                </div>
+                <div class="form-group">
+                    <label for="createVehicle_password">Password</label>
+                    <input type="password" name="password" class="form-control" id="createVehicle_password"/>
+                </div>
+                Please enter the vehicle information.
+                <div class="form-group">
+                    <label for="createVehicle_vehicleNr">Vehicle Number</label>
+                    <input type="text" name="vehicleNr" class="form-control" id="createVehicle_vehicleNr"/>
+                </div>
+                <div class="form-group">
+                    <label for="createVehicle_vehicleType">Vehicle Type</label>
+                    <select class="form-control" name="vehicleType" id="createVehicle_vehicleType">
+                        <option value="TRAM">Tram</option>
+                        <option value="BUS">Bus</option>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-success" onclick="doCreateVehicle()">Add</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<button type="button" class="btn btn-success" data-toggle="modal" data-target="#createVehicleModal">Add Vehicle</button><br><br>
+
+<table style="width:100%">
+    <tr>
+        <th>Vehicle Number</th>
+        <th>Vehicle Type</th>
+        <th>Owner username</th>
+        <th>Owner e-mail</th>
+        <th>Details</th>
+        <th>Delete</th>
+    </tr>
+    {% for vehicle in vehicles %}
+        <tr>
+            <td>{{ vehicle.vehicleNr }}</td>
+            <td>{{ vehicle.vehicleType }}</td>
+            <td>{{ vehicle.owner.username }}</td>
+            <td>{{ vehicle.owner.email }}</td>
+            <td><a href="{{ url_for('vehicles_details',vehicle_nr=vehicle.vehicleNr) }}">Details</a></td>
+            <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteVehicleModal" onclick="setDeleteVehicleForm(  '{{ vehicle.vehicleNr }}' )">&times;</button></td>
+        </tr>
+    {% endfor %}
+</table>
+
+<script>
+
+    /**
+     * Prepare the delete vehicle modal.
+     */
+    function setDeleteVehicleForm(vehicle_nr)
+    {
+        document.getElementById("deleteVehicle_vehicleNr").value = vehicle_nr;
+    }
+
+    /**
+     * Function that makes a call to delete
+     */
+    function doDeleteVehicle()
+    {
+        // determine url
+        const vehicle_nr = document.getElementById("deleteVehicle_vehicleNr").value;
+
+        const url = "/api/vehicles/delete/" + vehicle_nr + "/";
+
+        const header = {
+            'username': document.getElementById("deleteVehicle_username").value,
+            'password': document.getElementById("deleteVehicle_password").value
+        };
+
+        $('#deleteVehicleModal').modal('hide');
+
+        makeRequestAsync(url, "DELETE", finishVehicleDelete, header, null);
+
+        function finishVehicleDelete(response_data)
+        {
+            if(response_data['responseCode'] != 200)
+            {
+                alert(response_data['errorMessage']);
+            }
+
+            reloadPage();
+        }
+    }
+
+    /**
+     * Function that submits the create vehicle form to the vehicle API.
+     */
+    function doCreateVehicle()
+    {
+        const url = "/api/vehicles/create/"
+
+        // check value
+        const vehicle_nr = document.getElementById("createVehicle_vehicleNr").value;
+
+        if(!checkInt(vehicle_nr) || parseInt(vehicle_nr) < 0)
+        {
+            alert("The specified vehicle number needs to be a positive integer.");
+            return;
+        }
+
+        const header = {
+            'username': document.getElementById("createVehicle_username").value,
+            'password': document.getElementById("createVehicle_password").value
+        };
+
+        const body = {
+            'vehicleNr': document.getElementById("createVehicle_vehicleNr").value,
+            'vehicleType': document.getElementById("createVehicle_vehicleType").value
+        }
+
+        $('#createVehicleModal').modal('hide');
+
+        makeRequestAsync(url, "POST", finishCreateVehicle, header, body)
+
+        function finishCreateVehicle(response_data)
+        {
+            if(response_data['responseCode'] != 200)
+            {
+                alert(response_data['errorMessage']);
+            }
+
+            reloadPage();
+        }
+    }
+
+</script>
+
+{% endblock %}

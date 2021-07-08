@@ -1,0 +1,589 @@
+Anderlecht 117.724
+Brussel / Bruxelles 177.112
+Elsene / Ixelles 86.336
+Etterbeek 47.410
+Evere 41.016
+Ganshoren 24.794
+Jette 52.144
+Koekelberg 21.765
+Oudergem / Auderghem 33.725
+Schaarbeek / Schaerbeek 132.097
+Sint‐Agatha‐Berchem / Berchem‐Sainte‐Agathe 24.831
+Sint‐Gillis / Saint‐Gilles 49.361
+Sint‐Jans‐Molenbeek / Molenbeek‐Saint‐Jean 95.455
+Sint‐Joost‐ten‐Node / Saint‐Josse‐ten‐Noode 26.813
+Sint‐Lambrechts‐Woluwe / Woluwe‐Saint‐Lambert 56.212
+Sint‐Pieters‐Woluwe / Woluwe‐Saint‐Pierre 41.513
+Ukkel / Uccle 82.038
+Vorst / Forest 55.694
+Watermaal‐Bosvoorde / Watermael‐Boitsfort 25.001
+Aartselaar 14.298
+Antwerpen (Anvers) 521.680
+Boechout 13.114
+Boom 17.955
+Borsbeek 10.677
+Brasschaat 37.840
+Brecht 28.995
+Edegem 21.936
+Essen 19.060
+Hemiksem 11.352
+Hove 8.115
+Kalmthout 18.602
+Kapellen 26.731
+Kontich 21.064
+Lint 8.776
+Malle 15.292
+Mortsel 25.798
+Niel 10.424
+Ranst 18.979
+Rumst 15.101
+Schelle 8.435
+Schilde 19.578
+Schoten 34.448
+Stabroek 18.522
+Wijnegem 9.705
+Wommelgem 12.880
+Wuustwezel 20.663
+Zandhoven 12.981
+Zoersel 21.738
+Zwijndrecht 18.991
+Berlaar 11.506
+Bonheiden 14.954
+Bornem 21.178
+Duffel 17.374
+Heist‐op‐den‐Berg 42.466
+Lier (Lierre) 35.667
+Mechelen (Malines) 86.137
+Nijlen 22.799
+Putte 17.584
+Puurs 17.448
+Sint‐Amands 8.479
+Sint‐Katelijne‐Waver 20.863
+Willebroek 26.230
+Arendonk 13.274
+Baarle‐Hertog (Baerle‐Duc) 2.697
+Balen 22.425
+Beerse 17.928
+Dessel 9.538
+Geel 39.895
+Grobbendonk 11.117
+Herentals 28.085
+Herenthout 8.951
+Herselt 14.531
+Hoogstraten 21.293
+Hulshout 10.376
+Kasterlee 18.576
+Laakdal 16.007
+Lille 16.499
+Meerhout 10.321
+Merksplas 8.602
+Mol 36.506
+Olen 12.482
+Oud‐Turnhout 13.505
+Ravels 14.855
+Retie 11.226
+Rijkevorsel 11.915
+Turnhout 44.035
+Vorselaar 7.841
+Vosselaar 11.165
+Westerlo 24.864
+Affligem 13.221
+Asse 32.940
+Beersel 25.035
+Bever (Biévène) 2.205
+Dilbeek 42.467
+Drogenbos 5.590
+Galmaarden (Gammerages) 8.729
+Gooik 9.230
+Grimbergen 37.318
+Halle (Hal) 39.074
+Herne 6.642
+Hoeilaart 11.171
+Kampenhout 11.900
+Kapelle‐op‐den‐Bos 9.375
+Kraainem 13.673
+Lennik 9.021
+Liedekerke 13.181
+Linkebeek 4.753
+Londerzeel 18.614
+Machelen 15.398
+Meise 19.154
+Merchtem 16.295
+Opwijk 14.386
+Overijse 25.169
+Pepingen 4.374
+Roosdaal 11.622
+Sint‐Genesius‐Rode (Rhode‐Saint‐Genèse) 18.278
+Sint‐Pieters‐Leeuw 34.025
+Steenokkerzeel 12.086
+Ternat 15.473
+Vilvoorde (Vilvorde) 44.009
+Wemmel 16.322
+Wezembeek‐Oppem 14.001
+Zaventem 33.747
+Zemst 23.327
+Aarschot 29.956
+Begijnendijk 10.053
+Bekkevoort 6.269
+Bertem 9.960
+Bierbeek 10.023
+Boortmeerbeek 12.365
+Boutersem 8.165
+Diest 23.811
+Geetbets 6.032
+Glabbeek 5.297
+Haacht 14.466
+Herent 21.633
+Hoegaarden 6.940
+Holsbeek 9.902
+Huldenberg 9.882
+Keerbergen 12.732
+Kortenaken 7.871
+Kortenberg 20.210
+Landen 15.953
+Leuven (Louvain) 101.197
+Linter 7.253
+Lubbeek 14.387
+Oud‐Heverlee 11.097
+Rotselaar 16.675
+Scherpenheuvel‐Zichem (Montaigu‐Zichem) 22.940
+Tervuren 22.248
+Tielt‐Winge 10.704
+Tienen (Tirlemont) 34.644
+Tremelo 14.839
+Zoutleeuw (Léau) 8.489
+As 8.190
+Beringen 46.027
+Diepenbeek 19.133
+Genk 66.037
+Gingelom 8.384
+Halen 9.456
+Ham 10.813
+Hasselt 77.594
+Herk‐de‐Stad (Herck‐la‐Ville) 12.658
+Heusden‐Zolder 33.386
+Leopoldsburg (Bourg‐Léopold) 15.616
+Lummen 14.742
+Nieuwerkerken 6.957
+Opglabbeek 10.329
+Sint‐Truiden (Saint‐Trond) 40.444
+Tessenderlo 18.507
+Zonhoven 21.214
+Zutendaal 7.233
+Bocholt 13.081
+Bree 16.000
+Dilsen‐Stokkem 20.436
+Hamont‐Achel 14.417
+Hechtel‐Eksel 12.287
+Houthalen‐Helchteren 30.589
+Kinrooi 12.217
+Lommel 34.024
+Maaseik 25.180
+Meeuwen‐Gruitrode 13.086
+Neerpelt 17.173
+Overpelt 15.468
+Peer 16.401
+Alken 11.564
+Bilzen 32.299
+Borgloon (Looz) 10.695
+Heers 7.285
+Herstappe 88
+Hoeselt 9.683
+Kortessem 8.441
+Lanaken 25.794
+Maasmechelen 38.143
+Riemst 16.654
+Tongeren (Tongres) 31.013
+Voeren (Fourons) 4.155
+Wellen 7.401
+Aalst (Alost) 85.615
+Denderleeuw 20.076
+Erpe‐Mere 19.857
+Geraardsbergen (Grammont) 33.341
+Haaltert 18.443
+Herzele 17.714
+Lede 18.619
+Ninove 38.677
+Sint‐Lievens‐Houtem 10.244
+Zottegem 26.368
+Berlare 14.839
+Buggenhout 14.470
+Dendermonde (Termonde) 45.670
+Hamme 24.825
+Laarne 12.485
+Lebbeke 19.188
+Waasmunster 10.769
+Wetteren 25.464
+Wichelen 11.580
+Zele 20.953
+Assenede 14.204
+Eeklo 20.864
+Kaprijke 6.421
+Maldegem 23.681
+Sint‐Laureins 6.681
+Zelzate 12.688
+Aalter 20.544
+Deinze 31.055
+De Pinte 10.532
+Destelbergen 18.012
+Evergem 35.213
+Gavere 12.766
+Gent (Gand) 259.570
+Knesselare 8.231
+Lochristi 22.299
+Lovendegem 9.575
+Melle 11.567
+Merelbeke 24.629
+Moerbeke 6.457
+Nazareth 11.577
+Nevele 12.177
+Oosterzele 13.534
+Sint‐Martens‐Latem 8.470
+Waarschoot 7.963
+Wachtebeke 7.676
+Zomergem 8.457
+Zulte 15.713
+Brakel 14.773
+Horebeke 2.046
+Kluisbergen 6.446
+Kruishoutem 8.082
+Lierde 6.567
+Maarkedal 6.339
+Oudenaarde (Audenarde) 31.118
+Ronse (Renaix) 26.304
+Wortegem‐Petegem 6.439
+Zingem 7.553
+Zwalm 8.130
+Beveren 48.162
+Kruibeke 16.661
+Lokeren 41.421
+Sint‐Gillis‐Waas 19.258
+Sint‐Niklaas (Saint‐Nicolas) 76.670
+Stekene 18.342
+Temse (Tamise) 29.512
+Beernem 15.683
+Blankenberge 20.297
+Brugge (Bruges) 118.136
+Damme 11.011
+Jabbeke 13.876
+Knokke‐Heist 33.058
+Oostkamp 23.577
+Torhout 20.504
+Zedelgem 22.637
+Zuienkerke 2.732
+Diksmuide (Dixmude) 16.729
+Houthulst 10.033
+Koekelare 8.793
+Kortemark 12.569
+Lo‐Reninge 3.288
+Heuvelland 7.846
+Ieper (Ypres) 34.950
+Langemark‐Poelkapelle 7.907
+Mesen (Messines) 1.037
+Poperinge 19.717
+Vleteren 3.658
+Wervik 18.632
+Zonnebeke 12.444
+Anzegem 14.599
+Avelgem 10.063
+Deerlijk 11.794
+Harelbeke 27.879
+Kortrijk (Courtrai) 76.242
+Kuurne 13.318
+Lendelede 5.739
+Menen (Menin) 33.141
+Spiere‐Helkijn (Espierres‐Helchin) 2.086
+Waregem 38.104
+Wevelgem 31.385
+Zwevegem 24.602
+Bredene 17.817
+De Haan 12.628
+Gistel 12.050
+Ichtegem 13.940
+Middelkerke 19.360
+Oostende (Ostende) 71.224
+Oudenburg 9.291
+Hooglede 9.949
+Ingelmunster 10.923
+Izegem 27.728
+Ledegem 9.720
+Lichtervelde 8.791
+Moorslede 11.081
+Roeselare (Roulers) 62.209
+Staden 11.374
+Ardooie 8.988
+Dentergem 8.483
+Meulebeke 10.891
+Oostrozebeke 7.847
+Pittem 6.749
+Ruiselede 5.385
+Tielt 20.392
+Wielsbeke 9.581
+Wingene 14.229
+Alveringem 5.087
+De Panne (La Panne) 11.107
+Koksijde 21.956
+Nieuwpoort (Nieuport) 11.552
+Veurne (Furnes) 11.795
+Beauvechain (Bevekom) 7.224
+Braine‐l'Alleud (Eigenbrakel) 39.833
+Braine‐le‐Château (Kasteelbrakel) 10.435
+Chastre 7.600
+Chaumont‐Gistoux 11.706
+Court‐Saint‐Etienne 10.503
+Genappe (Genepiën) 15.350
+Grez‐Doiceau (Graven) 13.379
+Hélécine 3.480
+Incourt 5.387
+Ittre (Itter) 6.875
+Jodoigne (Geldenaken) 14.075
+La Hulpe (Terhulpen) 7.305
+Lasne 14.232
+Mont‐Saint‐Guibert 7.560
+Nivelles (Nijvel) 28.503
+Orp‐Jauche 8.856
+Ottignies‐Louvain‐la‐Neuve 31.347
+Perwez (Perwijs) 9.290
+Ramillies 6.395
+Rebecq 11.004
+Rixensart 22.381
+Tubize (Tubeke) 25.902
+Villers‐la‐Ville 10.714
+Walhain 7.168
+Waterloo 30.171
+Wavre (Waver) 34.310
+Ath (Aat) 29.151
+Beloeil 14.021
+Bernissart 11.868
+Brugelette 3.649
+Chièvres 6.915
+Ellezelles (Elzele) 6.000
+Flobecq (Vloesberg) 3.422
+Frasnes‐lez‐Anvaing 11.736
+Aiseau‐Presles 10.786
+Chapelle‐lez‐Herlaimont 14.866
+Charleroi 201.327
+Châtelet 36.063
+Courcelles 31.309
+Farciennes 11.251
+Fleurus 22.704
+Fontaine‐l'Evêque 17.782
+Gerpinnes 12.651
+Les Bons Villers 9.457
+Manage 23.116
+Montigny‐le‐Tilleul 10.136
+Pont‐à‐Celles 17.283
+Seneffe 11.267
+Boussu 19.839
+Colfontaine 20.758
+Dour 16.711
+Frameries 21.863
+Hensies 6.831
+Honnelles 5.136
+Jurbise (Jurbeke) 10.477
+Lens 4.515
+Mons (Bergen) 95.230
+Quaregnon 18.988
+Quévy 8.105
+Quiévrain 6.756
+Saint‐Ghislain 23.311
+Comines‐Warneton (Komen‐Waasten) 17.992
+Mouscron (Moeskroen) 58.164
+Braine‐le‐Comte ('s Gravenbrakel) 21.613
+Ecaussinnes 11.118
+Enghien (Edingen) 13.719
+La Louvière 80.464
+Le Roeulx 8.615
+Lessines (Lessen) 18.539
+Silly (Opzullik) 8.403
+Soignies (Zinnik) 27.573
+Anderlues 12.256
+Beaumont 7.131
+Binche 33.590
+Chimay 9.834
+Erquelinnes 9.930
+Estinnes 7.716
+Froidchapelle 3.952
+Ham‐sur‐Heure‐Nalinnes 13.532
+Lobbes 5.851
+Merbes‐le‐Château 4.250
+Momignies 5.308
+Morlanwelz 18.998
+Sivry‐Rance 4.832
+Thuin 14.683
+Antoing 7.757
+Brunehaut 8.103
+Celles 5.660
+Estaimpuis 10.393
+Leuze‐en‐Hainaut 13.881
+Mont‐de‐l'Enclus 3.719
+Pecq 5.594
+Péruwelz 17.103
+Rumes 5.179
+Tournai (Doornik) 69.415
+Amay 14.299
+Anthisnes 4.198
+Burdinne 3.234
+Clavier 4.619
+Engis 6.116
+Ferrières 4.913
+Hamoir 3.867
+Héron 5.269
+Huy (Hoei) 21.280
+Marchin 5.450
+Modave 4.199
+Nandrin 5.835
+Ouffet 2.805
+Tinlot 2.710
+Verlaine 4.174
+Villers‐le‐Bouillet 6.505
+Wanze 13.570
+Ans 28.237
+Awans 9.352
+Aywaille 12.393
+Bassenge (Bitsingen) 8.987
+Beyne‐Heusay 12.008
+Blegny 13.309
+Chaudfontaine 20.927
+Comblain‐au‐Pont 5.390
+Dalhem 7.415
+Esneux 12.885
+Flémalle 26.167
+Fléron 16.487
+Grâce‐Hollogne 22.524
+Herstal 39.948
+Juprelle 9.286
+Liège (Luik) 196.337
+Neupré 9.944
+Oupeye 25.288
+Saint‐Nicolas 24.242
+Seraing 64.141
+Soumagne 16.883
+Sprimont 14.650
+Trooz 8.173
+Visé (Wezet) 17.752
+Amel (Amblève) 5.477
+Aubel 4.230
+Baelen 4.437
+Büllingen (Bullange) 5.472
+Burg‐Reuland 3.951
+Bütgenbach (Butgenbach) 5.604
+Dison 15.366
+Eupen 19.499
+Herve 17.572
+Jalhay 8.591
+Kelmis (La Calamine) 11.045
+Lierneux 3.598
+Limbourg (Limburg) 5.941
+Lontzen 5.692
+Malmedy 12.644
+Olne 4.087
+Pepinster 9.771
+Plombières 10.397
+Raeren 10.684
+Sankt Vith (Saint‐Vith) 9.678
+Spa 10.371
+Stavelot 7.144
+Stoumont 3.102
+Theux 12.027
+Thimister‐Clermont 5.724
+Trois‐Ponts 2.570
+Verviers 55.069
+Waimes (Weismes) 7.430
+Welkenraedt 9.920
+Berloz 3.072
+Braives 6.325
+Crisnée 3.355
+Donceel 3.053
+Faimes 3.946
+Fexhe‐le‐Haut‐Clocher 3.259
+Geer 3.430
+Hannut (Hannuit) 16.420
+Lincent (Lijsem) 3.292
+Oreye (Oerle) 3.916
+Remicourt 5.907
+Saint‐Georges‐sur‐Meuse 6.782
+Waremme (Borgworm) 15.163
+Wasseiges 2.964
+Arlon (Aarlen) 29.654
+Attert 5.535
+Aubange 16.871
+Martelange 1.816
+Messancy 8.168
+Bastogne (Bastenaken) 15.887
+Bertogne 3.579
+Fauvillers 2.251
+Gouvy 5.202
+Houffalize 5.218
+Sainte‐Ode 2.556
+Vaux‐sur‐Sûre 5.650
+Vielsalm 7.813
+Durbuy 11.374
+Erezée 3.219
+Hotton 5.526
+La Roche‐en‐Ardenne 4.193
+Manhay 3.460
+Marche‐en‐Famenne 17.452
+Nassogne 5.477
+Rendeux 2.580
+Tenneville 2.842
+Bertrix 8.760
+Bouillon 5.352
+Daverdisse 1.409
+Herbeumont 1.622
+Léglise 5.364
+Libin 5.164
+Libramont‐Chevigny 11.185
+Neufchâteau 7.663
+Paliseul 5.390
+Saint‐Hubert 5.564
+Tellin 2.464
+Wellin 3.062
+Chiny 5.171
+Etalle 5.854
+Florenville 5.622
+Habay 8.381
+Meix‐devant‐Virton 2.822
+Musson 4.507
+Rouvroy 2.078
+Saint‐Léger 3.592
+Tintigny 4.276
+Virton 11.321
+Anhée 7.116
+Beauraing 9.154
+Bièvre 3.307
+Ciney 16.423
+Dinant 13.539
+Gedinne 4.563
+Hamois 7.349
+Hastière 5.979
+Havelange 5.131
+Houyet 4.872
+Onhaye 3.194
+Rochefort 12.555
+Somme‐Leuze 5.587
+Vresse‐sur‐Semois 2.635
+Yvoir 9.163
+Andenne 26.985
+Assesse 6.965
+Eghezée 16.243
+Fernelmont 7.923
+Floreffe 8.110
+Fosses‐la‐Ville 10.446
+Gembloux 25.934
+Gesves 7.205
+Jemeppe‐sur‐Sambre 19.077
+La Bruyère 9.232
+Mettet 13.032
+Namur (Namen) 110.747
+Ohey 5.076
+Profondeville 12.194
+Sambreville 28.208
+Sombreffe 8.423
+Cerfontaine 4.927
+Couvin 13.766
+Doische 2.952
+Florennes 11.365
+Philippeville 9.230
+Viroinval 5.724
+Walcourt 18.377

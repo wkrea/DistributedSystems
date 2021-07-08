@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+	    <!-- Required meta tags -->
+	    <meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	    <!-- Bootstrap CSS -->
+        <!-- CDN
+	    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        -->
+
+        <!-- LOCAL -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}">
+
+
+	    <title>DeLijn user feedback service</title>
+    </head>
+    <body>
+	    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/users/">Users</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/vehicles/">Vehicles</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/stops/">Stops</a>
+                </li>
+            </ul>
+	    </nav>
+
+        <!-- Modal that blocks the screen and shows that something is loading. -->
+        <div id="progressModal" class="modal fade" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-hidden="true" style="padding-top:15%; overflow-y:visible;">
+            <div class="modal-dialog modal-m">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 style="margin:0;">Loading...</h3>
+                    </div>
+                    <div class="modal-body">
+                        Please wait.
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <script>
+
+            /**
+             * Make a HTTP request to the specified url with the specified method. The result will be passed to specfied callback function.
+             *
+             * @param url The URL that is the target of the HTTP request.
+             * @param method The method that will be used for the request. e.g. "POST", "GET", "DELETE", etc.
+             * @param callback A function that takes one parameter that will be used to consume the result of the request.
+             * @param header Object that contains (key, value) pairs that will be used as HTTP header.
+             */
+            function makeRequestAsync(url, method, callback, header, body)
+            {
+                
+                let xmlHttp = new XMLHttpRequest();
+                xmlHttp.open(method, url, true);
+
+                // iterate over key, value pairs in header
+                // SOURCE: https://stackoverflow.com/questions/684672/how-do-i-loop-through-or-enumerate-a-javascript-object
+                if(header != null) {
+                    for (var key in header) {
+                        if (header.hasOwnProperty(key)) {
+                            // pass key, value pair to request
+                            console.log(key + " -> " + header[key])
+                            xmlHttp.setRequestHeader(key, header[key])
+                        }
+                    }
+                }
+
+                // callback to process request
+                xmlHttp.onload = function ()
+                {
+                    console.log("Received response.");
+                    if (xmlHttp.status == 200) { // GOOD
+
+                        // pass the result to the callback.
+                        callback(JSON.parse(xmlHttp.responseText));
+
+                    } else { // ERROR
+
+                        const error_data = JSON.parse(xmlHttp.responseText);
+                        
+                        console.error("ErrorMessage: '" + error_data["errorMessage"] + "'");
+                        console.error("causeErrorMessage: '" + error_data['causeErrorMessage'] + "'");
+
+                        callback(JSON.parse(xmlHttp.responseText));
+                    }
+                };
+
+                console.log("Making '" + method + "' call to '" + url + "'.");
+
+                if(body == null) {
+                    xmlHttp.send();
+                } else {
+                    xmlHttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                    xmlHttp.send(jQuery.param(body));
+                }
+            }
+
+            /**
+             * Show the progress indicator.
+             */
+            function showProgress()
+            {
+                $("#progressModal").modal();
+            }
+
+            /**
+             * Hide the progress indicator.
+             */
+            function hideProgress()
+            {
+                console.log("HIDE PROGRESS");
+                $("#progressModal").modal('hide');
+
+            }
+
+            /**
+             * Reload the page.
+             */
+            function reloadPage()
+            {
+                window.location.reload(true);
+            }
+
+            /**
+             * Only accepts integers.
+             *
+             * SOURCE: https://stackoverflow.com/questions/175739/built-in-way-in-javascript-to-check-if-a-string-is-a-valid-number
+             */
+            function checkInt(value)
+            {
+                return Boolean(value.match(/^-{0,1}\d+$/));
+            }
+
+            /**
+             * Only accepts floats and integers.
+             *
+             * SOURCE: https://stackoverflow.com/questions/175739/built-in-way-in-javascript-to-check-if-a-string-is-a-valid-number
+             */
+            function checkFloat(value)
+            {
+                return Boolean(value.match(/^\d+\.\d+$/)) || checkInt(value);
+            }
+
+            /**
+             * Determines whether the following this are all true:
+             *
+             * * The value is a float.
+             * * The value is smaller than or equal to 10.0.
+             * * The value is greater than or equal to 0.0.
+             */
+            function checkScoreValue(value)
+            {
+                if(!checkFloat(value)) {
+                    return false;
+                }
+
+                const parsed_value = parseFloat(value);
+
+                return 0.0 <= parsed_value && parsed_value <= 10.0;
+            }
+
+            /**
+             * Determines whether or not the specified string has the specified minimum length.
+             */
+            function checkStringLength(value, min_length)
+            {
+                return value.length >= min_length;
+            }
+
+            /**
+             * Determine whether the specified string contains an email address.
+             *
+             * SOURCE: https://stackoverflow.com/questions/13000413/validate-email-address-in-javascript-and-compatible-with-non-ascii-characters
+             */
+            function checkEmailAddress(value)
+            {
+                const reEmail = /^[a-z0-9!#$%&'*+\/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+\/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
+
+                return reEmail.test(value);
+            }
+
+        </script>
+
+        <div class="container-fluid" style="padding: 65px;">
+            {% include "messages.html" %}
+            {% block body %}{% endblock %}
+        </div>
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <!-- CDN
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        -->
+
+        <!-- LOCAL -->
+        <script src=" {{ url_for('static', filename='jquery/jquery-3.4.1.min.js') }} "></script>
+        <script src=" {{ url_for('static', filename='popper/popper.min.js') }} "></script>
+        <script src=" {{ url_for('static', filename='bootstrap/js/bootstrap.min.js') }} "></script>
+
+    </body>
+</html>

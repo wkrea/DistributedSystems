@@ -1,0 +1,183 @@
+{% extends 'layout.html' %}
+
+
+{% block body %}
+
+<div class="modal fade" id="filterProvinceModal" tabindex="-1" role="dialog" aria-labelledby="filterProvinceModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="filterProvinceModalLabel">Filter by province</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="filterProvinceModalBody">
+                <div class="form-group">
+                    <label for="filterProvince_province">Province</label>
+                    <select class="form-control" name="province" id="filterProvince_province">
+                        {% for province in provinces %}
+                            <option value="{{ province.id }}">{{ province.id }} - {{ province.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary" onclick="doFilterByProvince()">Filter</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="filterLineModal" tabindex="-1" role="dialog" aria-labelledby="filterLineModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="filterLineModalLabel">Filter by line</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="filterLineModalBody">
+                <div class="form-group">
+                    <label for="filterLine_province">Province</label>
+                    <select class="form-control" name="province" id="filterLine_province" onchange="updateSelectLine()">
+                        {% for province in provinces %}
+                            <option value="{{ province.id }}">{{ province.id }} - {{ province.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="filterLine_line">Line</label>
+                    <select class="form-control" name="line" id="filterLine_line">
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary" onclick="doFilterByLines()">Filter</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="filterCityModal" tabindex="-1" role="dialog" aria-labelledby="filterCityModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="filterCityModalLabel">Filter by city</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="filterCityModalBody">
+                <div class="form-group">
+                    <label for="filterCity_city">City</label>
+                    <select class="form-control" name="city" id="filterCity_city">
+                        {% for city in cities %}
+                            <option value="{{ city.cityId }}">{{ city.cityName }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary" onclick="doFilterByCity()">Filter</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#filterProvinceModal">Filter by Province</button>&nbsp;
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#filterLineModal">Filter by Line</button>&nbsp;
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#filterCityModal">Filter by City</button>
+<br><br>
+
+{% if stops %}
+    <table style="width:100%">
+        <tr>
+            <th>Stop Number</th>
+            <th>Stop Name</th>
+            <th>City</th>
+            <th>Details</th>
+        </tr>
+        {% for stop in stops %}
+            <tr>
+                <td>{{ stop.stopId }}</td>
+                <td>{{ stop.stopName }}</td>
+                <td>{{ stop.cityName }}</td>
+                <td><a href="{{ url_for('stops_details',stop_id=stop.stopId) }}">Details</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+{% else %}
+
+    <h4>Please select a filter to view stops.</h4>
+
+{% endif %}
+
+<script>
+
+    function updateSelectLine()
+    {
+        // get current prov id
+        const prov_id = document.getElementById('filterLine_province').value;
+
+        // get lines
+        const url_lines = "/api/stops/provinces/" + prov_id + "/lines/";
+        makeRequestAsync(url_lines, "GET", finishUpdateSelectLine, null, null);
+
+        function finishUpdateSelectLine(response_data)
+        {
+            if(response_data['responseCode'] != 200)
+            {
+                alert("Cannot setup form: cannot retrieve lines from server.");
+                return;
+            }
+
+            let options_HTML = "";
+            for(const line of response_data["lines"])
+            {
+                options_HTML += '<option value="' + line["id"] + '">' + line["id"] + ' - ' + line["name"] + '</option>\n';
+            }
+
+            // set options of "filterLine_line" element
+            document.getElementById("filterLine_line").innerHTML = options_HTML;
+        }
+    }
+
+    updateSelectLine();
+
+    function doFilterByProvince()
+    {
+        const prov_id = document.getElementById('filterProvince_province').value;
+
+        const target_url = "/stops/provinces/" + prov_id + "/";
+
+        window.location.href = target_url;
+    }
+
+    function doFilterByLines()
+    {
+        const prov_id = document.getElementById('filterLine_province').value;
+        const line_id = document.getElementById('filterLine_line').value;
+
+        const target_url = "/stops/provinces/" + prov_id + "/lines/" + line_id + "/";
+
+        window.location.href = target_url;
+    }
+
+    function doFilterByCity()
+    {
+        const city_id = document.getElementById('filterCity_city').value;
+
+        const target_url = "/stops/cities/" + city_id + "/";
+
+        window.location.href = target_url;
+    }
+
+</script>
+
+{% endblock %}
